@@ -13,7 +13,7 @@ chroma_client = chromadb.PersistentClient(path="./db")   # Change path according
 collection = chroma_client.get_collection(name="demo") 
  
 results = collection.query( 
-    query_texts=["What are the new features of the"], 
+    query_texts=["What is IBM POWER?"], 
     n_results=5, 
     include=["documents"] 
 ) 

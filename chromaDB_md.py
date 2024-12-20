@@ -127,7 +127,7 @@ def main() -> None:
     for document_path in files_directory.glob("*.md"):  # Searching for markdown files
         insert_document(document_path, collection)
         print("Finished inserting")
-        time.sleep(30)
+        time.sleep(5)
 
     print("Setup completed.")
 

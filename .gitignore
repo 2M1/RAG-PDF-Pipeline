@@ -1,5 +1,7 @@
 # Ignore the folder db_files_txt
-/db_files_txt/
+/.cache/
+/db/
+
 
 # Ignore the folder myenv (which is likely your virtual environment)
 myenv/
@@ -7,3 +9,6 @@ myenv/
 # Ignore specific files (exact filenames)
 Meta-Llama-3-8B.Q8_0.gguf
 Meta-Llama-3-8B.Q8-Instruct-Q5_K_M.gguf
+llama-2-7b-chat.Q8_0.gguf
+Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf
+mistral-7b-v0.1.Q4_K_M.gguf
