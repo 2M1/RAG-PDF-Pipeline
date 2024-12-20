@@ -1,5 +1,5 @@
-- Automise Scripts
-- Get toggle where you can switch off RAG context
+- Automise Scripts -> Done
+- Get toggle where you can switch off RAG context -> Done
 - Testing of RAG with sellers
 - Testing of RAG with comparison of w. context and no. context
 - Run on POWER (last step)
