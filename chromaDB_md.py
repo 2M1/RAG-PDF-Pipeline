@@ -28,11 +28,14 @@ def ensure_collection(client: chromadb.ClientAPI) -> tuple[CollectionStatus, Opt
         # Attempt to retrieve the collection
         collection = client.get_collection(name=demo_collection)
         return CollectionStatus.COLLECTION_EXISTS, collection
-    except chromadb.errors.InvalidCollectionException:
-        # If collection doesn't exist, create a new one
-        print(f"Collection '{demo_collection}' does not exist. Creating a new one.")
-        collection = client.get_or_create_collection(name=demo_collection)
-        return CollectionStatus.COLLECTION_CREATED, collection
+    except ValueError as e:
+        # Catch ValueError if the collection doesn't exist
+        if "does not exist" in str(e):
+            print(f"Collection '{demo_collection}' does not exist. Creating a new one.")
+            collection = client.get_or_create_collection(name=demo_collection)
+            return CollectionStatus.COLLECTION_CREATED, collection
+        else:
+            raise e  # Re-raise the error if it's an unexpected ValueError
 
 
 def clean_text(raw_text: str) -> str:
