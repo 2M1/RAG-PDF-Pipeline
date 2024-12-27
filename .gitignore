@@ -1,6 +1,7 @@
 # Ignore the folder db_files_txt
 /.cache/
 /db/
+/db_files_pdf/
 
 
 # Ignore the folder myenv (which is likely your virtual environment)
