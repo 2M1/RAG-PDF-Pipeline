@@ -10,7 +10,7 @@ base_directory = Path(os.getcwd())
 database = base_directory / "db" 
 # Initialize Chroma client and collection
 chroma_client = chromadb.PersistentClient(path="./db")   # Change path accordingly
-collection = chroma_client.get_collection(name="demo") 
+collection = chroma_client.get_collection(name="collection_group_1") 
  
 results = collection.query( 
     query_texts=["What is IBM POWER?"], 

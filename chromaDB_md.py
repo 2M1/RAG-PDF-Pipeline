@@ -1,5 +1,3 @@
-import os
-import re
 import sys
 from enum import auto
 from enum import Enum
@@ -12,8 +10,10 @@ from transformers import AutoTokenizer, AutoModel
 import torch
 import psutil
 import time
+import os
+import re
 
-sentence_transformer_ef = embedding_functions.SentenceTransformerEmbeddingFunction(model_name="all-MiniLM-L6-v2")
+sentence_transformer_ef = embedding_functions.SentenceTransformerEmbeddingFunction(model_name="all-mpnet-base-v2")
 
 
 class CollectionStatus(Enum):
@@ -21,21 +21,16 @@ class CollectionStatus(Enum):
     COLLECTION_EXISTS = auto()
 
 
-def ensure_collection(client: chromadb.ClientAPI) -> tuple[CollectionStatus, Optional[Collection]]:
+def ensure_collection(client: chromadb.ClientAPI, collection_name) -> tuple[CollectionStatus, Optional[Collection]]:
     demo_collection = "demo"
 
     try:
-        # Attempt to retrieve the collection
-        collection = client.get_collection(name=demo_collection)
-        return CollectionStatus.COLLECTION_EXISTS, collection
-    except ValueError as e:
-        # Catch ValueError if the collection doesn't exist
-        if "does not exist" in str(e):
-            print(f"Collection '{demo_collection}' does not exist. Creating a new one.")
-            collection = client.get_or_create_collection(name=demo_collection)
-            return CollectionStatus.COLLECTION_CREATED, collection
-        else:
-            raise e  # Re-raise the error if it's an unexpected ValueError
+        collection = client.create_collection(name=collection_name)
+        print(f"Collection '{collection_name}' created successfully.")
+        return CollectionStatus.COLLECTION_CREATED, collection
+    except Exception as e:
+        print(f"Failed to create collection '{collection_name}': {e}")
+        raise e
 
 
 def clean_text(raw_text: str) -> str:
@@ -45,7 +40,7 @@ def clean_text(raw_text: str) -> str:
     return cleaned_text
 
 
-def get_chunks(text: str, max_words: int = 50) -> list[tuple[str, int]]:
+def get_chunks(text: str, max_words: int = 150) -> list[tuple[str, int]]:
     words = clean_text(text).split(" ")
     chunks = []
     # Split the text into chunks of max_words length
@@ -109,7 +104,7 @@ def insert_document(document_path: Path, collection: Collection) -> None:
 def main() -> None:
     base_directory = Path(os.getcwd())
     db_directory = Path("./db")
-    files_directory = Path("./db_files_md")  # Change the folder name to "db_files_md"
+    files_directory = Path("./db_files_md")  # Folder containing markdown files
 
     if not db_directory.exists():
         db_directory.mkdir()
@@ -119,28 +114,59 @@ def main() -> None:
         sys.exit(1)
 
     chroma_client = chromadb.PersistentClient(path=str(db_directory))
-    collection_status, collection = ensure_collection(chroma_client)
 
-    # If collection already exists, skip loading files
+    # Define the groups of files (based on your example)
+    file_groups = [
+        ["E1080.md"],  # First collection should come from E1080_md
+        ["E1050.md"],  # Second collection should come from E1051_md
+        ["S1012.md"],  # Third collection should come from E1020_md
+        ["ScaleOut.md"],  # Fourth collection should come from E1010_md
+    ]
+
+    # Iterate over the file groups and create a collection for each
+    for i, group in enumerate(file_groups):
+        print("Adding collection group", i + 1)
+        collection_name = f"collection_group_{i + 1}"
+        collection_status, collection = ensure_collection(chroma_client, collection_name)
+
+        if collection_status == CollectionStatus.COLLECTION_EXISTS:
+            print(f"Collection '{collection_name}' already exists. Skipping file insertion.")
+        else:
+            print(f"Creating collection '{collection_name}' and inserting documents.")
+            for file_name in group:
+                document_path = files_directory / file_name
+                if document_path.exists():
+                    insert_document(document_path, collection)
+                    print(f"Inserted {file_name} into {collection_name}")
+
+                else:
+                    print(f"File {file_name} not found!")
+                time.sleep(5)
+
+    # Final collection with all the markdown files in the directory
+    final_collection_name = "final_collection_all_files"
+    collection_status, collection = ensure_collection(chroma_client, final_collection_name)
+
     if collection_status == CollectionStatus.COLLECTION_EXISTS:
-        print("Collection already exists. No new files are loaded.")
-        sys.exit(0)
-
-    # Insert documents into collection
-    for document_path in files_directory.glob("*.md"):  # Searching for markdown files
-        insert_document(document_path, collection)
-        print("Finished inserting")
-        time.sleep(5)
+        print(f"Collection '{final_collection_name}' already exists. Skipping file insertion.")
+    else:
+        print(f"Creating collection '{final_collection_name}' and inserting all documents.")
+        for document_path in files_directory.glob("*.md"):  # Insert all .md files
+            insert_document(document_path, collection)
+            print(f"Inserted {document_path.name} into {final_collection_name}")
+            time.sleep(5)
 
     print("Setup completed.")
 
-    result = collection.query( 
-        query_texts=["What is IBM POWER"], 
-        n_results=5, 
-        include=["documents"] 
-    ) 
+    # Example query for testing
+    result = collection.query(
+        query_texts=["What is IBM POWER"],
+        n_results=5,
+        include=["documents"]
+    )
     print(result)
 
 
 if __name__ == "__main__":
     main()
+                                                       
