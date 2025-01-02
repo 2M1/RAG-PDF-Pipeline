@@ -10,15 +10,16 @@ from sentence_transformers import SentenceTransformer
 chroma_client = chromadb.PersistentClient(path="./db")
 
 # Initialize LLaMA model with llama-cpp-python (local model)
-llama_model_path = ""  # Path to your LLaMA model
+llama_model_path = "/data/LLMs/llama-2/13B/Llama-2-13b-chat-hf/llama-2-13b-chat.Q8_0.gguf"  # Path to your LLaMA model
 llama = Llama(model_path=llama_model_path)
 
-model = SentenceTransformer('all-MiniLM-L6-v2')
+#model = SentenceTransformer('all-mpnet-base-v2')
+sentence_transformer_ef = embedding_functions.SentenceTransformerEmbeddingFunction(model_name="all-mpnet-base-v2")
 
 # Function to retrieve relevant documents from ChromaDB
 def retrieve_documents(query, collection_name, top_k=1):
  
-    collection = chroma_client.get_collection(name=collection_name)
+    collection = chroma_client.get_collection(name=collection_name, embedding_function=sentence_transformer_ef)
     
     #query_embedding = model.encode([query])[0]
 
@@ -56,7 +57,17 @@ def generate_response(query, collection_name, use_context=True):
         # Combine the query with the retrieved documents as context
         flat_documents = [item for sublist in documents for item in sublist]
         context = "\n".join(flat_documents)
-        input_text = f"Here is some relevant information:\n{context}\n\nBased on this information, please answer the following question:\n{query}\nAnswer:"
+        input_text = f"""
+        You are an expert assistant tasked with providing detailed and accurate answers. Below is some relevant context information followed by a question. Use the provided context as your primary source, and incorporate your general knowledge only when necessary to supplement or clarify your answer.
+
+        Context:
+        {context}
+    
+        Question:
+        {query}
+
+        Answer:
+        """
         print(input_text)
     else:
         # Use only the query without context
@@ -64,7 +75,7 @@ def generate_response(query, collection_name, use_context=True):
 
     cmData = ""
     # Generate a response from the LLaMA model
-    for output in llama(input_text, max_tokens=9600, stream=True):
+    for output in llama(input_text, max_tokens=4096, stream=True):
         data = output['choices'][0]['text']
         cmData += data
         yield cmData

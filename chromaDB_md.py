@@ -14,8 +14,8 @@ import os
 import re
 from langchain.text_splitter import MarkdownTextSplitter
 
-#sentence_transformer_ef = embedding_functions.SentenceTransformerEmbeddingFunction(model_name="all-mpnet-base-v2")
-splitter = MarkdownTextSplitter(chunk_size=2000)
+sentence_transformer_ef = embedding_functions.SentenceTransformerEmbeddingFunction(model_name="all-mpnet-base-v2")
+splitter = MarkdownTextSplitter(chunk_size=500)
 
 
 class CollectionStatus(Enum):
@@ -27,7 +27,7 @@ def ensure_collection(client: chromadb.ClientAPI, collection_name) -> tuple[Coll
     demo_collection = "demo"
 
     try:
-        collection = client.create_collection(name=collection_name) #, embedding_function=sentence_transformer_ef)
+        collection = client.create_collection(name=collection_name, embedding_function=sentence_transformer_ef)
         print(f"Collection '{collection_name}' created successfully.")
         return CollectionStatus.COLLECTION_CREATED, collection
     except Exception as e:
