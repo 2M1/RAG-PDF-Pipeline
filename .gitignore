@@ -3,6 +3,7 @@
 /db/
 /db_files_pdf/
 /stiehl_pdf/
+/db_stiehl/
 
 
 # Ignore the folder myenv (which is likely your virtual environment)
