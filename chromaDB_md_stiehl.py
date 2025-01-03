@@ -67,6 +67,7 @@ def insert_document(document_path: Path, collection: Collection) -> None:
     markdown_content = clean_text(markdown_content)
 
     text = splitter.create_documents([markdown_content])
+
     
     
     document_name = document_path.stem.replace(" ", "-").replace("_", "-")

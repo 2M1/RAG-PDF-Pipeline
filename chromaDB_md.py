@@ -64,9 +64,16 @@ def insert_document(document_path: Path, collection: Collection) -> None:
     with open(document_path, 'r') as file:
         markdown_content = file.read()
     
-    markdown_content = clean_text(markdown_content)
+    #markdown_content = clean_text(markdown_content)
 
     text = splitter.create_documents([markdown_content])
+
+    
+    print("Here comes the text")
+    print(text)
+
+    time.sleep(4)
+
     
     
     document_name = document_path.stem.replace(" ", "-").replace("_", "-")
@@ -120,7 +127,7 @@ def insert_document(document_path: Path, collection: Collection) -> None:
 def main() -> None:
     base_directory = Path(os.getcwd())
     db_directory = Path("./db")
-    files_directory = Path("./db_files_md")  # Folder containing markdown files
+    files_directory = Path("./db_files_ocp_md")  # Folder containing markdown files
 
     if not db_directory.exists():
         db_directory.mkdir()
@@ -132,11 +139,14 @@ def main() -> None:
     chroma_client = chromadb.PersistentClient(path=str(db_directory))
 
     # Define the groups of files (based on your example)
+    #file_groups = [
+    #    ["E1080.md"],  # First collection should come from E1080_md
+    #    ["E1050.md"],  # Second collection should come from E1051_md
+    #    ["S1012.md"],  # Third collection should come from E1020_md
+    #    ["ScaleOut.md"],  # Fourth collection should come from E1010_md
+    #]
     file_groups = [
-        ["E1080.md"],  # First collection should come from E1080_md
-        ["E1050.md"],  # Second collection should come from E1051_md
-        ["S1012.md"],  # Third collection should come from E1020_md
-        ["ScaleOut.md"],  # Fourth collection should come from E1010_md
+        ["Openshift.md"],  # First collection should come from E1080_md
     ]
 
     # Iterate over the file groups and create a collection for each

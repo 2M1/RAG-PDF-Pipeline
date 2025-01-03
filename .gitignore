@@ -4,6 +4,7 @@
 /db_files_pdf/
 /stiehl_pdf/
 /db_stiehl/
+/db_files_ocp/
 
 
 # Ignore the folder myenv (which is likely your virtual environment)
