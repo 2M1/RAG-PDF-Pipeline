@@ -132,35 +132,44 @@ def main() -> None:
 
     # Define the groups of files (based on your example)
     file_groups = [
-        ["E1080.md"],  # First collection should come from E1080_md
-        ["E1050.md"],  # Second collection should come from E1050_md
-        ["S1012.md"],  # Third collection should come from S1020_md
-        ["ScaleOut.md"],  # Fourth collection should come from E1010_md
-        ["Openshift.md"] # Fifth collection should come from Openshift_md
+        "E1080.md",  # First collection should come from E1080_md
+        "E1050.md",  # Second collection should come from E1050_md
+        "S1012.md",  # Third collection should come from S1020_md
+        "ScaleOut.md",  # Fourth collection should come from E1010_md
+        "Openshift.md" # Fifth collection should come from Openshift_md
     ]
     #file_groups = [
     #    ["Openshift.md"],  # First collection should come from E1080_md
     #]
 
     # Iterate over the file groups and create a collection for each
-    for i, group in enumerate(file_groups):
+    for i, file_name in enumerate(file_groups):
         print("Adding collection group", i + 1)
-        collection_name = group[:-3]
+        print(file_groups)
+        print(i)
+
+        # Remove the last three characters for the collection name
+        collection_name = file_name[:-3]
+        print(collection_name)
+
+        # Ensure the collection exists or create it
         collection_status, collection = ensure_collection(chroma_client, collection_name)
 
         if collection_status == CollectionStatus.COLLECTION_EXISTS:
             print(f"Collection '{collection_name}' already exists. Skipping file insertion.")
         else:
             print(f"Creating collection '{collection_name}' and inserting documents.")
-            for file_name in group:
-                document_path = files_directory / file_name
-                if document_path.exists():
-                    insert_document(document_path, collection)
-                    print(f"Inserted {file_name} into {collection_name}")
-
-                else:
-                    print(f"File {file_name} not found!")
-                time.sleep(5)
+            
+            # Process the file
+            document_path = files_directory / file_name
+            if document_path.exists():
+                insert_document(document_path, collection)
+                print(f"Inserted {file_name} into {collection_name}")
+            else:
+                print(f"File {file_name} not found!")
+            
+            # Delay between operations
+            time.sleep(5)
 
     # Final collection with all the markdown files in the directory
     #final_collection_name = "final_collection_all_files"
