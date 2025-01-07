@@ -5,19 +5,20 @@ import os
 from chromadb.utils import embedding_functions
 from transformers import AutoTokenizer, AutoModel
 from sentence_transformers import SentenceTransformer
+import time
 
 # Initialize ChromaDB client and collection
 chroma_client = chromadb.PersistentClient(path="./db")
 
 # Initialize LLaMA model with llama-cpp-python (local model)
-llama_model_path = "/data/LLMs/llama-2/13B/Llama-2-13b-chat-hf/llama-2-13b-chat.Q8_0.gguf"  # Path to your LLaMA model
-llama = Llama(model_path=llama_model_path)
+llama_model_path = "/data/LLMs/gguf/Llama-3.2-3B-Instruct-Q4_K_M.gguf"  # Path to your LLaMA model
+llama = Llama(model_path=llama_model_path, n_ctx=0)
 
 #model = SentenceTransformer('all-mpnet-base-v2')
 sentence_transformer_ef = embedding_functions.SentenceTransformerEmbeddingFunction(model_name="all-mpnet-base-v2")
 
 # Function to retrieve relevant documents from ChromaDB
-def retrieve_documents(query, collection_name, top_k=1):
+def retrieve_documents(query, collection_name, top_k=3):
  
     collection = chroma_client.get_collection(name=collection_name, embedding_function=sentence_transformer_ef)
     
@@ -35,7 +36,7 @@ def generate_response(query, collection_name, use_context=True):
     if use_context:
         
         final_collection_name = ""
-        if (collection_name == "E1080"):
+        if (collection_name == "Openshift"):
             print("using E1080")
             final_collection_name = "collection_group_1"
         elif (collection_name == "E1050"):
@@ -58,16 +59,19 @@ def generate_response(query, collection_name, use_context=True):
         flat_documents = [item for sublist in documents for item in sublist]
         context = "\n".join(flat_documents)
         input_text = f"""
-        You are an expert assistant tasked with providing detailed and accurate answers. Below is some relevant context information followed by a question. Use the provided context as your primary source, and incorporate your general knowledge only when necessary to supplement or clarify your answer.
+        You are a highly skilled assistant designed to provide accurate, concise, and contextually relevant answers. Below is the context retrieved from a trusted source, followed by a question. Your task is to prioritize the provided context for your response. If the context does not fully answer the question, carefully incorporate your general knowledge to enhance the completeness of the answer.
+
+        Be specific, avoid redundancy, and limit your response to no more than 5 sentences.
 
         Context:
         {context}
-    
+
         Question:
         {query}
 
         Answer:
         """
+
         print(input_text)
     else:
         # Use only the query without context
@@ -76,14 +80,23 @@ def generate_response(query, collection_name, use_context=True):
     cmData = ""
     # Generate a response from the LLaMA model
     for output in llama(input_text, max_tokens=4096, stream=True):
-        data = output['choices'][0]['text']
-        cmData += data
-        yield cmData
+        print(output)
+        #time.sleep(1)
+        if (output['choices'][0]['text'] == '\n'):
+            break
+        elif (output['choices'][0]['text'] == ' \n\n'):
+            break
+        else:
+            data = output['choices'][0]['text']
+            cmData += data
+            yield cmData
 
 # Create Gradio UI
 def main():
     with gr.Blocks() as demo:
-        gr.Markdown("# RAG Pipeline with Toggleable Context")
+        gr.Markdown("# Chatbot for Openshift on POWER")
+        gr.Markdown("This is a Chatbot which has context from the Openshift RedBook for POWER. If you do not want to use any context, then switch off the box under Use Context (RAG).")
+        gr.Markdown("If this is switched off, then you are basically using a normal Chatbot without any additional context")
 
         with gr.Row():
             query_input = gr.Textbox(label="Enter your query", placeholder="What would you like to know?")
@@ -94,8 +107,8 @@ def main():
         with gr.Row():
             # Dropdown for selecting the file from 5 options
             file_selector = gr.Dropdown(
-                label="About which POWER System do you want to have Information?",
-                choices=["E1080", "E1050", "S1012", "Scale Out", "All Systems"],  # List of your file names
+                label="About which POWER Topic do you want to have Information?",
+                choices=["Openshift"],  # List of your file names
                 value="All Systems"  # Default selection
             )
         

@@ -37,7 +37,7 @@ def ensure_collection(client: chromadb.ClientAPI, collection_name) -> tuple[Coll
 
 def clean_text(raw_text: str) -> str:
     # Clean up the text to remove extra spaces and line breaks
-    #cleaned_text = raw_text.replace("\n", " ")
+    cleaned_text = raw_text.replace("\n", " ")
     cleaned_text = re.sub(r"\s+", " ", raw_text)
     return cleaned_text
 
@@ -64,17 +64,9 @@ def insert_document(document_path: Path, collection: Collection) -> None:
     with open(document_path, 'r') as file:
         markdown_content = file.read()
     
-    #markdown_content = clean_text(markdown_content)
+    markdown_content = clean_text(markdown_content)
 
-    text = splitter.create_documents([markdown_content])
-
-    
-    print("Here comes the text")
-    print(text)
-
-    time.sleep(4)
-
-    
+    text = splitter.create_documents([markdown_content])    
     
     document_name = document_path.stem.replace(" ", "-").replace("_", "-")
 
