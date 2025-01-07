@@ -131,20 +131,21 @@ def main() -> None:
     chroma_client = chromadb.PersistentClient(path=str(db_directory))
 
     # Define the groups of files (based on your example)
-    #file_groups = [
-    #    ["E1080.md"],  # First collection should come from E1080_md
-    #    ["E1050.md"],  # Second collection should come from E1051_md
-    #    ["S1012.md"],  # Third collection should come from E1020_md
-    #    ["ScaleOut.md"],  # Fourth collection should come from E1010_md
-    #]
     file_groups = [
-        ["Openshift.md"],  # First collection should come from E1080_md
+        ["E1080.md"],  # First collection should come from E1080_md
+        ["E1050.md"],  # Second collection should come from E1050_md
+        ["S1012.md"],  # Third collection should come from S1020_md
+        ["ScaleOut.md"],  # Fourth collection should come from E1010_md
+        ["Openshift.md"] # Fifth collection should come from Openshift_md
     ]
+    #file_groups = [
+    #    ["Openshift.md"],  # First collection should come from E1080_md
+    #]
 
     # Iterate over the file groups and create a collection for each
     for i, group in enumerate(file_groups):
         print("Adding collection group", i + 1)
-        collection_name = f"collection_group_{i + 1}"
+        collection_name = group[:-3]
         collection_status, collection = ensure_collection(chroma_client, collection_name)
 
         if collection_status == CollectionStatus.COLLECTION_EXISTS:
@@ -162,17 +163,17 @@ def main() -> None:
                 time.sleep(5)
 
     # Final collection with all the markdown files in the directory
-    final_collection_name = "final_collection_all_files"
-    collection_status, collection = ensure_collection(chroma_client, final_collection_name)
+    #final_collection_name = "final_collection_all_files"
+    #collection_status, collection = ensure_collection(chroma_client, final_collection_name)
 
-    if collection_status == CollectionStatus.COLLECTION_EXISTS:
-        print(f"Collection '{final_collection_name}' already exists. Skipping file insertion.")
-    else:
-        print(f"Creating collection '{final_collection_name}' and inserting all documents.")
-        for document_path in files_directory.glob("*.md"):  # Insert all .md files
-            insert_document(document_path, collection)
-            print(f"Inserted {document_path.name} into {final_collection_name}")
-            time.sleep(5)
+    #if collection_status == CollectionStatus.COLLECTION_EXISTS:
+    #    print(f"Collection '{final_collection_name}' already exists. Skipping file insertion.")
+    #else:
+    #    print(f"Creating collection '{final_collection_name}' and inserting all documents.")
+    #    for document_path in files_directory.glob("*.md"):  # Insert all .md files
+    #        insert_document(document_path, collection)
+    #        print(f"Inserted {document_path.name} into {final_collection_name}")
+    #        time.sleep(5)
 
     print("Setup completed.")
 

@@ -35,23 +35,7 @@ def retrieve_documents(query, collection_name, top_k=3):
 def generate_response(query, collection_name, use_context=True):
     if use_context:
         
-        final_collection_name = ""
-        if (collection_name == "Openshift"):
-            print("using E1080")
-            final_collection_name = "collection_group_1"
-        elif (collection_name == "E1050"):
-            print("using E1050")
-            final_collection_name = "collection_group_2"
-        elif (collection_name == "S1012"):
-            print("using S1012")
-            final_collection_name = "collection_group_3"
-        elif (collection_name == "Scale Out"):
-            print("using Scale out")
-            final_collection_name = "collection_group_4"
-        else:
-            print("using all")
-            final_collection_name = "final_collection_all_files"
-        documents = retrieve_documents(query, final_collection_name) if use_context else []
+        documents = retrieve_documents(query, collection_name) if use_context else []
         
         print("documents")
         print(documents)
@@ -60,8 +44,6 @@ def generate_response(query, collection_name, use_context=True):
         context = "\n".join(flat_documents)
         input_text = f"""
         You are a highly skilled assistant designed to provide accurate, concise, and contextually relevant answers. Below is the context retrieved from a trusted source, followed by a question. Your task is to prioritize the provided context for your response. If the context does not fully answer the question, carefully incorporate your general knowledge to enhance the completeness of the answer.
-
-        Be specific, avoid redundancy, and limit your response to no more than 5 sentences.
 
         Context:
         {context}
@@ -108,7 +90,7 @@ def main():
             # Dropdown for selecting the file from 5 options
             file_selector = gr.Dropdown(
                 label="About which POWER Topic do you want to have Information?",
-                choices=["Openshift"],  # List of your file names
+                choices=["E1080", "E1050", "S1012", "ScaleOut", "Openshift"],  # List of your file names
                 value="All Systems"  # Default selection
             )
         

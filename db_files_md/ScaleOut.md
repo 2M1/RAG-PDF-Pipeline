@@ -171,67 +171,6 @@ Internal storage for the Power S1022s is exclusively NVMe-based, which connects 
 
 The Power S1024 server includes PowerVM Enterprise Edition to deliver virtualized environments and support a frictionless hybrid cloud experience. Workloads can run the AIX, IBM i, and Linux operating systems, including Red Hat OpenShift Container Platform.
 
-## 1.3  Operating environment
-
-The Power10 processor-based Scale Out servers are installed in industry-standard, 19-inch racks that are housed in data centers. The exceptions are the Power S1012 and the Power S1014 which are also available in a desk-side tower form factor.
-
-Table 1-1 lists the electrical characteristics of the Power S1012, S1014, S1022s, S1022, and S1024 servers.
-
-Table 1-1   Electrical characteristics for Power S1012, S1014, S1022s, S1022, and S1024 servers
-
-| Electrical            | Properties Power S1012  Power S1014  Power S1022s  Power S1022  Power S1024   | Properties Power S1012  Power S1014  Power S1022s  Power S1022  Power S1024                | Properties Power S1012  Power S1014  Power S1022s  Power S1022  Power S1024   | Properties Power S1012  Power S1014  Power S1022s  Power S1022  Power S1024   | Properties Power S1012  Power S1014  Power S1022s  Power S1022  Power S1024   |
-|-----------------------|-------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|-------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-| characteristics       | server                                                                        | server                                                                                     | server                                                                        | server                                                                        | server                                                                        |
-| Operating  voltage    | 800 W power  supply 100--127  V AC or 200 -  240 V AC                         | 1200 W power  supply 100 - 127  V AC or 200 -  240 V AC  or 1600 W power  supply 200 - 240 | 1000 W power  supply 100 - 127  V AC or 200 -  240 V AC                       | 2000 W power  supply 200 - 240  V AC                                          | 1600 W power  supply 200 - 240  V AC                                          |
-| Operating  frequency  | 50/60 ±3 Hz                                                                   | 50/60 ±3 Hz                                                                                | 50/60 ±3 Hz                                                                   | 50/60 ±3 Hz                                                                   | 50/60 ±3 Hz                                                                   |
-| Thermal output        | 1877 BTU/hr  (maximum)                                                        | 3668 Btu/hour  (maximum)                                                                   | 7643 Btu/hour  (maximum)                                                      | 7643 Btu/hour  (maximum)                                                      | 9383 Btu/hour  (maximum)                                                      |
-| Power  consumption    | 550 watts  (maximum)                                                          | 1075 watts  (maximum)                                                                      | 2240 watts  (maximum)                                                         | 2240 watts  (maximum)                                                         | 2750 watts  (maximum)                                                         |
-| Power-source  loading | 0.580 kVA (maximum  configuration)                                            | 1.105 kVa  (maximum  configuration)                                                        | 2.31 kVa  (maximum  configuration)                                            | 2.31 kVa  (maximum  configuration)                                            | 2.835 kVa  (maximum  configuration)                                           |
-| Phase                 | Single                                                                        | Single                                                                                     | Single                                                                        | Single                                                                        | Single                                                                        |
-
-Note: The maximum measured value is the worst-case power consumption that is expected from a fully populated server under an intensive workload. The maximum measured value also accounts for component tolerance and non-ideal operating conditions. Power consumption and heat load vary greatly by server configuration and utilization. The IBM Systems Energy Estimator can be used to obtain a heat output estimate that is based on a specific configuration.
-
-Table 1-2 lists the environment requirements for the Power10 processor-based Scale Out servers.
-
-Table 1-2   Environment requirements for Power S1012, S1014, S1022s, S1022 and S1024
-
-| Environment                | Recommended  operating   | Allowable operating   | Non-operating   |
-|----------------------------|--------------------------|-----------------------|-----------------|
-| 18 - 27°C  (64.4 - 80.6°F) | 5 - 40°C (41 - 104°F)    | 5 - 45°C (41 - 113°F) | Temperature     |
-
-Table 1-3 lists the noise emissions for the systems.
-
-| Environment                                                                      | Recommended  operating   | Allowable operating   | Non-operating   |
-|----------------------------------------------------------------------------------|--------------------------|-----------------------|-----------------|
-| 9.0°C (48.2°F) dew  point (DP) to 60%  relative humidity (RH)  or 15°C (59°F) DP | 8% - 85% RH              | 8% - 85% RH           | Humidity range  |
-| N/A                                                                              | 24°C (75.2°F)            | 27°C (80.6°F)         | Maximum DP      |
-| Maximum operating  N/A                                                           |                          | 3050 m (10000 ft) N/A |                 |
-
-Note: IBM does not recommend operation above 27C, however, one can expect full performance up to 35C for these systems. Above 35C, the system is capable of operating, but possible reductions in performance may occur to preserve the integrity of the system components. Above 40C there may be reliability concerns for components within the system.
-
-Table 1-3   Noise emissions for Power S1014, S1022s, S1022 and S1024
-
-| Product             | Declared A-weighted sound  power level, L WAd a  (B) b c   | Declared A-weighted sound  power level, L WAd a  (B) b c   | Declared A-weighted sound  pressure level, L pAm  (dB) d   | Declared A-weighted sound  pressure level, L pAm  (dB) d   |
-|---------------------|------------------------------------------------------------|------------------------------------------------------------|------------------------------------------------------------|------------------------------------------------------------|
-|                     | Operating                                                  | Idle                                                       | Operating                                                  | Idle                                                       |
-| Power S1012 (tower) | 5.6                                                        | 5.6                                                        | 40                                                         | 40                                                         |
-| Power S1012 (rack)  | 5.6                                                        | 5.6                                                        | 42                                                         | 42                                                         |
-| Power S1014 (tower) | 6.4                                                        | 6.4                                                        | 48                                                         | 48                                                         |
-| Power S1014 (rack)  | 7.5                                                        | 7.5                                                        | 62                                                         | 62                                                         |
-| Power S1022s        | 7.4                                                        | 6.9                                                        | 62                                                         | 57                                                         |
-| Power S1022         | 7.4                                                        | 6.9                                                        | 62                                                         | 57                                                         |
-| Power S1024         | 7.7                                                        | 7.7                                                        | 64                                                         | 64                                                         |
-
-- a. Declared level L WAd is the upper-limit A-weighted sound power level. Declared level L pAm is the mean A-weighted emission sound pressure level that is measured at the 1-meter bystander positions.
-- b. For all servers except the S1012: All measurements are made in conformance with ISO 7779 and declared in conformance with ISO 9296.
-- c. For the S1012: Measurements are made in conformance with ISO 7779 and declared in conformance with ISO 9296 except for the inclusion of data using modeled results from system performance assessments.
-- d. 10 dB (decibel) equals 1 B (bel).
-
-Important: NVMe PCIe adapters (EC5G, EC5B, EC5C, EC5D, EC5E, EC5F, EC6U, EC6V, EC6W, EC6X, EC6Y, and EC6Z) require higher fan speeds to compensate for their higher thermal output. This issue might affect the acoustic output of the server, depending on the configuration. The e-config tool can be used to ensure a suitable configuration (log-in required).
-
-NVMe U.2 drives (ES1G, EC5V, ES1H, and EC5W) also require more cooling to compensate for their higher thermal output, which might increase the noise emissions of the servers.
-
-NVMe Flash Adapters (EC7B, EC7D, EC7F, EC7K, EC7M, EC7P, EC5B, EC5D, EC5F, EC6V, EC6X, EC6Z) are not supported when using the 24-core processor due to thermal limitations.
 
 ## 1.4  Physical package
 
@@ -1056,43 +995,7 @@ By default, newly delivered systems include an UAK that expires after three year
 
 Checking the validity and expiration date of the current UAK can be done through the HMC or eBMC graphical interfaces or command-line interfaces. However, the expiration date can also be displayed by using the suitable AIX or IBM i command.
 
-## UAK expiration date by using AIX 7.1
 
-In the case of AIX 7.1, use the following command:
-
-lscfg -vpl sysplanar0 | grep -p "System Firmware"
-
-The output is similar to the output that is shown in Example 1-1 (the Microcode Entitlement Date represents the UAK expiration date).
-
-Example 1-1   Output of the command to check UAK expiration date by way of AIX 7.1
-
-```
-$ lscfg -vpl sysplanar0 | grep -p "System Firmware" System Firmware: ... Microcode Image.............NL1020\_035 NL1020\_033 NL1020\_035 Microcode Level.............FW1020.00 FW1020.00 FW1020.00 Microcode Build Date........20220527 20220527 20220527 Microcode Entitlement Date..20220515 Hardware Location Code......U9105.42A.XXXXXXX-Y1 Physical Location: U9105.42A.XXXXXXX-Y1
-```
-
-## UAK expiration date by using AIX 7.2 and 7.3
-
-In the case of AIX 7.2 and 7.3, the output is slightly different from AIX 7.1. Use the following command:
-
-lscfg -vpl sysplanar0 |grep -p "System Firmware"
-
-The output is similar to the output that is shown in Example 1-2 (the Update Access Key Exp Date represents the UAK expiration date).
-
-Example 1-2 Output of the command to check UAK expiration date by way of AIX 7.2 and 7.3
-
-```
-$ lscfg -vpl sysplanar0 |grep -p "System Firmware" System Firmware: ... Microcode Image.............NL1020\_035 NL1020\_033 NL1020\_035
-```
-
-Microcode Level.............FW1020.00 FW1020.00 FW1020.00
-
-Microcode Build Date........20220527 20220527 20220527
-
-Update Access Key Exp Date..20220515
-
-Hardware Location Code......U9105.42A.XXXXXXX-Y1
-
-Physical Location: U9105.42A.XXXXXXX-Y1
 
 ## UAK expiration date by using IBM i
 
@@ -2437,51 +2340,6 @@ Figure 2-17 HMC menu for Power and Performance Mode setup
 
 <!-- image -->
 
-## 2.2.9 Comparing Power10, Power9, and Power8 processors
-
-The Power10 processor-based systems are available in three different processor module packages:
-
-- Single-chip modules (SCMs), which are based on one Power10 chip. These modules allow for the highest core performance.
-- Dual-chip modules (DCMs), which combine two Power10 chips where both Power10 chips contribute active processor cores. This configuration allows for processors with the memory and I/O bandwidth of two Power10 chips in a single socket.
-- eSCMs, which combine two Power10 chips but all active processor core resources are bundled on one of the two chips. This configuration allows for processors with a lower core count, but the full I/O bandwidth of both Power10 chips.
-
-The Power E1080 enterprise class systems exclusively use SCM modules with up to 15 active SMT8 capable cores. These SCM processor modules are structural and performance optimized for usage in scale-up multi-socket systems.
-
-The Power E1050 enterprise class system exclusively uses DCM modules with up to 24 active SMT8 capable cores. This configuration maximizes the core density and I/O capabilities of these servers.
-
-DCM modules with up to 24 active SMT8-capable cores are used in 1-socket Power S1014, 1- or 2-socket Power S1022 and Power S1024 servers. eSCMs with up to eight active SMT8-capable cores are used in 1-socket Power S1012, 1-socket Power S1014 and 1- or 2-socket Power S1022s servers.
-
-DCM and eSCM modules are designed to support scale-out 1- to 4-socket Power10 processor-based servers.
-
-Table 2-12 compares key features and characteristics of the Power10, Power9, and Power8 processor implementations as used in the range of Power10 processor-based servers.
-
-Table 2-12   Comparison of the Power10 processor technology to prior processor generations
-
-| Characteristics                                                 | Power10             | Power10             | Power10            | Power9             | Power8             |
-|-----------------------------------------------------------------|---------------------|---------------------|--------------------|--------------------|--------------------|
-|                                                                 | DCM                 | eSCM                | SCM                |                    |                    |
-| Technology                                                      | 7 nm                | 7 nm                | 7 nm               | 14 nm              | 22 nm              |
-| Die size                                                        | 2 x 602 mm 2        | 2 x 602 mm 2        | 602 mm 2           | 693 mm 2           | 649 mm 2           |
-| Processor module size                                           | 74.5 mm x  85.75 mm | 74.5 mm x  85.75 mm | 68.5 mm x  77.5 mm | 68.5 mm x  68.5 mm | 71.5 mm x  71.5 mm |
-| Number of transistors                                           | 2 x 18 billion      | 2 x 18 billion      | 18 billion         | 8 billion          | 4.2 billion        |
-| Maximum cores                                                   | 24                  | 8                   | 15                 | 12                 | 12                 |
-| Maximum hardware threads  per core                              | 8                   | 8                   | 8                  | 8                  | 8                  |
-| Maximum static frequency /  high-performance frequency  range a | 3.4 - 4.0 GHz       | 3.0 - 3.9 GHz       | 3.6 - 4.15 GHz     | 3.9 - 4.0 GHz      | 4.15 GHz           |
-| L2 Cache per core                                               | 2048 KB             | 2048 KB             | 2048 KB            | 512 KB             | 512 KB             |
-
-| Characteristics             | Power10                                                                                                                | Power10                                                                                                                | Power10                                                                                                                | Power9                                                                                                       | Power8                                                                                                   |
-|-----------------------------|------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
-|                             | DCM                                                                                                                    | eSCM                                                                                                                   | SCM                                                                                                                    |                                                                                                              |                                                                                                          |
-| L3 Cache                    | 8 MB of L3 cache per core with each core having  access to the full 120 MB of L3 cache, on-chip high-efficiency SRAM b | 8 MB of L3 cache per core with each core having  access to the full 120 MB of L3 cache, on-chip high-efficiency SRAM b | 8 MB of L3 cache per core with each core having  access to the full 120 MB of L3 cache, on-chip high-efficiency SRAM b | 10 MB of L3  cache per core with each core having access  to the full  120 MB of L3  cache, on-chip  eDRAM c | 8 MB of L3  cache per core with each core having access  to the full  96 MB of L3  cache, on-chip  eDRAM |
-| Supported memory technology | DDR4 or DDR5: Packaged on differential DIMMs  with more performance and resilience capabilities                        | DDR4 or DDR5: Packaged on differential DIMMs  with more performance and resilience capabilities                        | DDR4 or DDR5: Packaged on differential DIMMs  with more performance and resilience capabilities                        | DDR4 and  DDR3 d                                                                                             | DDR3 and  DDR4                                                                                           |
-| I/O bus                     | PCIe Gen 5                                                                                                             | PCIe Gen 5                                                                                                             | PCIe Gen 5                                                                                                             |                                                                                                              |                                                                                                          |
-|                             |                                                                                                                        |                                                                                                                        |                                                                                                                        | PCIe Gen 4                                                                                                   | PCIe Gen 3                                                                                               |
-
-- a. Best of class typical frequency range where the lower limit of the range coincides with the maximum static/nominal frequency.
-- b. Static random-access memory.
-- c. Embedded dynamic random-access memory.
-- d. Only DDR3 memory CDIMMs, which are transferred in the context of a model upgrade from Power E870, Power E870C, Power E880, or Power E880C systems to a Power E980 server, are supported.
-
 ## 2.3  Memory subsystem
 
 The Power10 processor contains eight independent MCUs that provide the system memory interface between the on-chip SMP interconnect fabric and the OMI links. Each MCU maps in a one-to-one relation to an OMI port, which is also referred to as memory channel . Each OMI port in turn supports two OMI links, for a total of 16 OMI links per chip. The OMI links of a specific OMI port are also referred to as memory subchannel A and B .
@@ -2674,123 +2532,6 @@ The memory DDIMMs are bundled in pairs.
 
 The Power S1022s server supports the Active Memory Mirroring (AMM) feature #EM8G. AMM requires a minimum four configured memory feature codes with a total of eight DDIMM modules.
 
-## Memory rules for 1-socket Power S1022s servers
-
-The minimum ordering granularity is one memory feature and all DDIMMs must be of the same feature code type for a Power S1022s server in 1-socket configuration. A maximum of four memory feature codes can be configured to cover all of the available eight memory slots.
-
-The minimum memory capacity limit of the Power S1022s 1-socket server is 32 GB, which can be fulfilled by one #EM6N feature for DDR4 memory, or one #EMFA for DDR5 memory (provides 64 GB).
-
-The maximum memory capacity of the 1-socket Power S1022s is 1 TB. This specific maximum configuration requires four #EM6Y or four #EMFC memory features.
-
-Figure 2-24 shows the DDIMM plug sequence for Power S1022s servers in 1-socket configurations (the rules are identical to the previously described for Power S1014 servers).
-
-Figure 2-25 shows the DDIMM plug sequence for Power S1022s servers in 2-socket configuration when only a single memory feature code type is used.
-
-<!-- image -->
-
-Figure 2-24   DDIMM plug sequence for Power S1022s 1-socket servers
-
-| Power10 eSCM-0 Chip-0   | Power10 eSCM-0 Chip-0           | Power10 eSCM-0 Chip-0   | Power10 eSCM-0 Chip-0   | Power10 eSCM-0 Chip-0   | Power10 eSCM-0 Chip-0   | Power10 eSCM-0 Chip-0   | Power10 eSCM-0 Chip-0   |
-|-------------------------|---------------------------------|-------------------------|-------------------------|-------------------------|-------------------------|-------------------------|-------------------------|
-| OMI0                    | OMI0                            | OMI1                    | OMI1                    | OMI2                    | OMI2                    | OMI3                    | OMI3                    |
-| A                       | B                               | A                       | B                       | A                       | B                       | A                       | B                       |
-|                         | C12 C13 C27 C32 C28 C29 C31 C30 |                         |                         |                         |                         |                         |                         |
-|                         |                                 | 1                       | 1                       |                         |                         |                         |                         |
-| 2                       | 2                               |                         |                         |                         |                         |                         |                         |
-|                         |                                 |                         |                         | 3                       | 3                       |                         |                         |
-|                         |                                 |                         |                         |                         |                         | 4                       | 4                       |
-
-All memory modules are attached to the first chip (chip-0) of the single eSCM (eSCM-0) and are of the same type as highlighted in green in Figure 2-24.
-
-The memory controllers and the related open memory interface (OMI) channels are highlighted  in bright yellow in Figure 2-24 and labeled OMI0, OMI1, OMI2, and OMI3.
-
-The related OMI links (subchannels A and B) are highlighted in light yellow in Figure 2-24 and the physical memory slot location codes are highlighted in light blue:
-
-- First DDIMM pair is installed on links OMI1A and OMI1B in slots C27 and C32
-- Second DDIMM pair is installed on links OMI1A and OMI1B in slots C12 and C13
-- Third DDIMM pair is installed on links OMI2A and OMI2B in slots C28 and C29
-- Fourth DDIMM pair is installed on links OMI3A and OMI3B in slots C31 and C30
-
-## Memory rules for 2-socket Power S1022s servers
-
-If only one memory feature type is used throughout the Power S1022s server, the minimum ordering granularity is one memory feature. In this scenario, all of the DDIMMs adhere to the same technical specification.
-
-Figure 2-25   DDIMM plug sequence for Power S1022s 2-socket servers with single memory feature
-
-| Power10 eSCM-0 Chip-0   | Power10 eSCM-0 Chip-0   | Power10 eSCM-0 Chip-0   | Power10 eSCM-0 Chip-0   | Power10 eSCM-0 Chip-0   | Power10 eSCM-0 Chip-0                                           | Power10 eSCM-0 Chip-0   | Power10 eSCM-0 Chip-0   | Power10 eSCM-1 Chip-0   | Power10 eSCM-1 Chip-0   | Power10 eSCM-1 Chip-0   | Power10 eSCM-1 Chip-0   | Power10 eSCM-1 Chip-0   | Power10 eSCM-1 Chip-0   | Power10 eSCM-1 Chip-0   | Power10 eSCM-1 Chip-0   |
-|-------------------------|-------------------------|-------------------------|-------------------------|-------------------------|-----------------------------------------------------------------|-------------------------|-------------------------|-------------------------|-------------------------|-------------------------|-------------------------|-------------------------|-------------------------|-------------------------|-------------------------|
-| OMI0                    | OMI0                    | OMI1                    | OMI1                    | OMI2                    | OMI2                                                            | OMI3                    | OMI3                    | OMI0                    | OMI0                    | OMI1                    | OMI1                    | OMI2                    | OMI2                    | OMI3                    | OMI3                    |
-| A                       | B                       | A                       | B                       | A                       | B                                                               | A                       | B                       | A                       | B                       | A                       | B                       | A                       | B                       | A                       | B                       |
-|                         |                         |                         |                         |                         | C12 C13 C27 C32 C28 C29 C31 C30 C19 C20 C21 C40 C38 C39 C41 C42 |                         |                         |                         |                         |                         |                         |                         |                         |                         |                         |
-|                         |                         | 1                       | 1                       |                         |                                                                 |                         |                         |                         |                         |                         |                         |                         |                         |                         |                         |
-|                         |                         |                         |                         |                         |                                                                 |                         |                         |                         |                         | 2                       | 2                       |                         |                         |                         |                         |
-| 3                       | 3                       |                         |                         |                         |                                                                 |                         |                         |                         |                         |                         |                         |                         |                         |                         |                         |
-|                         |                         |                         |                         |                         |                                                                 |                         |                         | 4                       | 4                       |                         |                         |                         |                         |                         |                         |
-|                         |                         |                         |                         | 5                       | 5                                                               |                         |                         |                         |                         |                         |                         |                         |                         |                         |                         |
-|                         |                         |                         |                         |                         |                                                                 |                         |                         |                         |                         |                         |                         | 6                       | 6                       |                         |                         |
-|                         |                         |                         |                         |                         |                                                                 | 7                       | 7                       |                         |                         |                         |                         |                         |                         | 8                       | 8                       |
-
-The memory modules are attached to the first chip (chip-0) of the first eSCM (eSCM-0) or to the first chip (chip-0) of the second eSCM (eSCM-1) and are of the same type, as highlighted in green in Figure 2-25.
-
-The memory controllers and the related open memory interface (OMI) channels are highlighted in bright yellow in Figure 2-25 and labeled OMI0, OMI1, OMI2, and OMI3.
-
-The related OMI links (subchannels A and B) are highlighted in light yellow in Figure 2-25 on page 92 and the physical memory slot location codes are highlighted in light blue:
-
-- First DDIMM pair is installed on links OMI1A and OMI1B in slots C27 and C32 of eSCM-0
-- Second DDIMM pair is installed on links OMI1A and OMI1B in slots C21 and C40 of eSCM-1
-- Third DDIMM pair is installed on links OMI0A and OMI0B in slots C12 and C13 of eSCM-0
-- Fourth DDIMM pair is installed on links OMI0A and OMI0B in slots C19 and C20 of eSCM-1
-- Fifth DDIMM pair is installed on links OMI2A and OMI2B in slots C28 and C29 of eSCM-0
-- Sixth DDIMM pair is installed on links OMI2A and OMI2B in slots C38 and C39 of eSCM-1
-- Seventh DDIMM pair is installed on links OMI3A and OMI3B in slots C31 and C30 of eSCM-0
-- Eighth DDIMM pair is installed on links OMI3A and OMI3B in slots C41 and C42 of eSCM-1
-
-If the 2-socket configuration is based on two different memory feature types, the minimum ordering granularity is two identical memory feature codes (4 DDIMMs). All DDIMMs that are attached to a eSCM must be of the same technical specification, which implies that they are of the same memory feature code type.
-
-It is not required to configure equal quantities of the two memory feature types. A maximum of four configured entities of each memory feature type (eight DDIMMs of equal specification) can be used.
-
-Important : DDR4 and DDR5 DDIMMs cannot be mixed within a single system.
-
-Configurations with more than two memory feature types are not supported.
-
-Figure 2-26 shows the DDIMM plug sequence for Power S1022s servers in 2-socket configuration when that two different memory feature code types are used.
-
-| Power10 eSCM-0 Chip-0   | Power10 eSCM-0 Chip-0   | Power10 eSCM-0 Chip-0   | Power10 eSCM-0 Chip-0   | Power10 eSCM-0 Chip-0   | Power10 eSCM-0 Chip-0                                           | Power10 eSCM-0 Chip-0   | Power10 eSCM-0 Chip-0   | Power10 eSCM-1 Chip-0   | Power10 eSCM-1 Chip-0   | Power10 eSCM-1 Chip-0   | Power10 eSCM-1 Chip-0   | Power10 eSCM-1 Chip-0   | Power10 eSCM-1 Chip-0   | Power10 eSCM-1 Chip-0   | Power10 eSCM-1 Chip-0   |
-|-------------------------|-------------------------|-------------------------|-------------------------|-------------------------|-----------------------------------------------------------------|-------------------------|-------------------------|-------------------------|-------------------------|-------------------------|-------------------------|-------------------------|-------------------------|-------------------------|-------------------------|
-| OMI0                    | OMI0                    | OMI1                    | OMI1                    | OMI2                    | OMI2                                                            | OMI3                    | OMI3                    | OMI0                    | OMI0                    | OMI1                    | OMI1                    | OMI2                    | OMI2                    | OMI3                    | OMI3                    |
-| A                       | B                       | A                       | B                       | A                       | B                                                               | A                       | B                       | A                       | B                       | A                       | B                       | A                       | B                       | A                       | B                       |
-|                         |                         |                         |                         |                         | C12 C13 C27 C32 C28 C29 C31 C30 C19 C20 C21 C40 C38 C39 C41 C42 |                         |                         |                         |                         |                         |                         |                         |                         |                         |                         |
-|                         |                         | 1                       | 1                       |                         |                                                                 |                         |                         |                         |                         |                         |                         |                         |                         |                         |                         |
-|                         |                         |                         |                         |                         |                                                                 |                         |                         |                         |                         | 1                       | 1                       |                         |                         |                         |                         |
-| 2                       | 2                       |                         |                         |                         |                                                                 |                         |                         |                         |                         |                         |                         |                         |                         |                         |                         |
-|                         |                         |                         |                         |                         |                                                                 |                         |                         | 2                       | 2                       |                         |                         |                         |                         |                         |                         |
-|                         |                         |                         |                         | 3                       | 3                                                               |                         |                         |                         |                         |                         |                         |                         |                         |                         |                         |
-|                         |                         |                         |                         |                         |                                                                 |                         |                         |                         |                         |                         |                         | 3                       | 3                       |                         |                         |
-|                         |                         |                         |                         |                         |                                                                 | 4                       | 4                       |                         |                         |                         |                         |                         |                         | 4                       | 4                       |
-
-Figure 2-26   DDIMM plug sequence for Power S1022s 2-socket servers with two memory feature types
-
-The memory modules of the first feature type are attached to the first chip (chip-0) of the first eSCM (eSCM-0) and are highlighted in green in Figure 2-26. The memory modules of the second feature type are attached to the first chip (chip-0) of the second eSCM (eSCM-1) and are highlighted in purple.
-
-The memory controllers and the related open memory interface (OMI) channels are highlighted in bright yellow in Figure 2-26 on page 93 and labeled OMI0, OMI1, OMI2, and OMI3 for both eSCMs.
-
-The related OMI links (subchannels A and B) are highlighted in light yellow in Figure 2-26 on page 93 and the physical memory slot location codes are highlighted in light blue. Each eSCM can be viewed as an independent memory feature type domain with its own inherent plug sequence.
-
-The following plug sequence is used for the memory feature type for eSCM-0:
-
-- First DDIMM pair is installed on links OMI1A and OMI1B in slots C27 and C32 of eSCM-0.
-- Second DDIMM pair is installed on links OMI1A and OMI1B in slots C12 and C13 of eSCM-0.
-- Third DDIMM pair is installed on links OMI2A and OMI2B in slots C28 and C29 of eSCM-0.
-- Fourth DDIMM pair is installed on links OMI3A and OMI3B in slots C31 and C30 of eSCM-0.
-
-The following plug sequence is used for the memory feature type for eSCM-1:
-
-- First DDIMM pair is installed on links OMI1A and OMI1B in slots C21 and C40 of eSCM-1.
-- Second DDIMM pair is installed on links OMI0A and OMI0B in slots C19 and C20 of eSCM-1.
-- Third DDIMM pair is installed on links OMI2A and OMI2B in slots C38 and C39 of eSCM-1.
-- Fourth DDIMM pair is installed on links OMI3A and OMI3B in slots C41 and C42 of eSCM-1.
-
-The maximum memory capacity of the 2-socket Power S1022s is 2 TB. This specific maximum configuration requires eight #EM6Y memory features with a total of 16 128-GB DDIMM modules. Until the availability of the 128 GB memory DDIMMs (planned for 18 November 2022), the maximum memory capacity is 1 TB.
 
 ## Power S1022 and Power S1024 memory feature and placement rules
 
@@ -2843,49 +2584,6 @@ Note: Power S1024 servers in 2-socket configuration do not support the 4U DDIMM 
 The Power S1022 and Power S1024 servers support the Active Memory Mirroring (AMM) Feature Code #EM8G. AMM requires a minimum four configured memory feature codes with a total of eight DDIMM modules.
 
 The Power S1022 and Power S1024 server share most of the memory feature and placement rules, which are described next.
-
-## Memory rules for 1-socket Power S1022 and Power S1024 servers
-
-The minimum ordering granularity is one memory feature (two DDIMMs) and all DDIMMs must be of the same Feature Code type for a Power S1022 or Power S1024 server in 1-socket configuration. A maximum of eight memory feature codes can be configured to cover all of the available (16) memory slots.
-
-The minimum memory capacity limit of the Power S1022 or the Power S1024 1-socket server is 32 GB, which can be fulfilled by one #EM6N feature or one #EMFA (DDR5 - provides 64 GB) feature.
-
-The maximum memory capacity of the Power S1022 in a one-socket configuration is 2 TB. This specific maximum configuration requires eight #EM6Y or #EMFC memory features.
-
-The maximum memory capacity of the Power S1024 in 1-socket configuration is 4 TB. This specific maximum configuration requires eight #EM78 or #EMFD memory features.
-
-Figure 2-27 shows the DDIMM plug sequence for Power S1022 or Power S1024 servers in 1-socket configuration.
-
-Figure 2-27   DDIMM plug sequence for Power S1022 and Power S1024 1-socket servers
-
-| Power10 DCM-0   | Power10 DCM-0   | Power10 DCM-0   | Power10 DCM-0   | Power10 DCM-0                                                   | Power10 DCM-0   | Power10 DCM-0   | Power10 DCM-0   | Power10 DCM-0   | Power10 DCM-0   | Power10 DCM-0   | Power10 DCM-0   | Power10 DCM-0   | Power10 DCM-0   | Power10 DCM-0   | Power10 DCM-0   |
-|-----------------|-----------------|-----------------|-----------------|-----------------------------------------------------------------|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|
-| Chip-0          | Chip-0          | Chip-0          | Chip-0          | Chip-0                                                          | Chip-0          | Chip-0          | Chip-0          | Chip-1          | Chip-1          | Chip-1          | Chip-1          | Chip-1          | Chip-1          | Chip-1          | Chip-1          |
-| OMI0            | OMI0            | OMI1            | OMI1            | OMI2                                                            | OMI2            | OMI3            | OMI3            | OMI4            | OMI4            | OMI5            | OMI5            | OMI6            | OMI6            | OMI7            | OMI7            |
-| A               | B               | A               | B               | A                                                               | B               | A               | B               | A               | B               | A               | B               | A               | B               | A               | B               |
-|                 |                 |                 |                 | C12 C13 C27 C32 C28 C29 C31 C30 C18 C17 C16 C35 C37 C36 C34 C33 |                 |                 |                 |                 |                 |                 |                 |                 |                 |                 |                 |
-|                 |                 | 1               | 1               |                                                                 |                 |                 |                 |                 |                 |                 |                 |                 |                 |                 |                 |
-|                 |                 |                 |                 |                                                                 |                 |                 |                 |                 |                 | 2               | 2               |                 |                 |                 |                 |
-| 3               | 3               |                 |                 |                                                                 |                 |                 |                 |                 |                 |                 |                 |                 |                 |                 |                 |
-|                 |                 |                 |                 |                                                                 |                 |                 |                 | 4               | 4               |                 |                 |                 |                 |                 |                 |
-|                 |                 |                 |                 | 5                                                               | 5               |                 |                 |                 |                 |                 |                 | 6               | 6               |                 |                 |
-|                 |                 |                 |                 |                                                                 |                 | 7               | 7               |                 |                 |                 |                 |                 |                 |                 |                 |
-|                 |                 |                 |                 |                                                                 |                 |                 |                 |                 |                 |                 |                 |                 |                 | 8               | 8               |
-
-The memory modules are attached to the first chip (chip-0) or the second chip (chip-1) of the configured DCM (DCM-0). All memory modules are of the same type as highlighted in green in Figure 2-27.
-
-The memory controllers and the related OMI channels are highlighted in bright yellow in Figure 2-27 and labeled OMI0, OMI1, OMI2, OMI3, OMI4, OMI5, OMI6, OMI7, and OMI8.
-
-The related OMI links (subchannels A and B) are highlighted in light yellow in Figure 2-27 and the physical memory slot location codes are highlighted in light blue:
-
-- First DDIMM pair is installed on links OMI1A and OMI1B in slots C27 and C32 of chip-0.
-- Second DDIMM pair is installed on links OMI5A and OMI5B in slots C16 and C35 of chip-1.
-- Third DDIMM pair is installed on links OMI0A and OMI0B in slots C12 and C13 of chip-0.
-- Fourth DDIMM pair is installed on links OMI4A and OMI4B in slots C18 and C17 of chip-1.
-- Fifth DDIMM pair is installed on links OMI2A and OMI2B in slots C28 and C29 of chip-0.
-- Sixth DDIMM pair is installed on links OMI6A and OMI6B in slots C37 and C36 of chip-1.
-- Seventh DDIMM pair is installed on links OMI3A and OMI3B in slots C31 and C30 of chip-0.
-- Eighth DDIMM pair is installed on links OMI7A and OMI7B in slots C34 and C33 of chip-1.
 
 ## Memory rules for 2-socket Power S1022 and Power S1024 servers
 
@@ -2953,99 +2651,6 @@ The Power10 DCM supports 16 open memory interface (OMI) links, and the Power10 e
 
 - Power S1014, S1022s, S1022 and S1024
 - Power S1012
-
-## Power S1014, S1022s, S1022 and S1024
-
-These Power10 processor-based scale-out servers offer four different DDIMM sizes for all server models: 16 GB, 32 GB, 64 GB, and 128 GB. The 16 GB, 32 GB, and 64 GB DDIMMs run at a data rate of 3200 Mbps.
-
-The DDIMMs of 128 GB capacity and 2U form factor are configurable for Power S1014, Power S1022s, and Power S1024 servers and run at a data rate of 2666 Mbps.
-
-The 128 GB DDIMMs of 4U form factor are exclusively available for Power S1024 servers, which run at a slightly higher data rate of 2933 Mbps. Only Power S1024 servers can use another 4U form factor DDIMM type that holds 256 GB of data and is running at 2933 Mbps.
-
-Table 2-19 lists the available DDIMM capacities and their related maximum theoretical bandwidth figures per OMI link, Power10 eSCM, and Power10 DCM. The top number is the DDR4 value and the bottom number is the DDR5 number.
-
-Table 2-19   Memory bandwidth of supported DDIMM sizes
-
-| DDIMM capacity                        | DRAM data  rate     | Maximum  theoretical bandwidth per OMI link   | Maximum  theoretical bandwidth per eSCM a   | Maximum  theoretical bandwidth per DCM a   |
-|---------------------------------------|---------------------|-----------------------------------------------|---------------------------------------------|--------------------------------------------|
-| 16 GB b , 32 GB c , 64 GB DDR5 number | 3200 Mbps 3200 Mbps | 25.6 GBps 51.2 GBps                           | 204.8 GBps 409.6 GBps                       | 409.6 GBps 819.2 GBps                      |
-
-Table 2-20 on page 101 lists the maximum memory bandwidth for the Power S1014 and Power S1022s servers, depending on the number of DDIMMs that are used and the DRAM data rate of the selected DDIMM type. The listing accounts for the minimum memory feature code order granularity. Unsupported configurations are indicated by a '-' hyphen. The top number is the DDR4 throughput and the bottom number is the DDR5 throughput.
-
-| DDIMM capacity             | DRAMdata rate       | Maximum theoretical  bandwidth per  OMI link   | Maximum theoretical  bandwidth per  eSCM a   | Maximum theoretical  bandwidth per  DCM a   |
-|----------------------------|---------------------|------------------------------------------------|----------------------------------------------|---------------------------------------------|
-| 128 GB                     | 2666 Mbps           | 21.3 GBps                                      | 170.4 GBps                                   | 340.8 GBps                                  |
-| DDR5 number                | 3200 Mbps           | 51.2 GBps                                      | 409.6 GBps                                   | 819.2 GBps                                  |
-| 128 GB, 256 GB DDR5 number | 2933 Mbps 3200 Mbps | 23.5 GBps 51.2 GBps                            | 187.7 GBps 409.6 GBps                        | 375.4 GBps 819.2 GBps                       |
-
-- a. DDIMM modules that are attached to one DCM or eSCM must be all of the same size.
-- b. 16 GB DDIMMs are not available in DDR5.
-- c. 32 GB DDIMM does not have second memory port connection. The maximum theoretical bandwidth is the same as the DDR4 DDIMM.
-
-## Memory bandwidth considerations
-
-Power10 processor-based scale-out servers are memory performance-optimized with eight DDIMM slots that are available per eSCM processor module and 16 DDIMM slots per DCM processor module.
-
-Each DDIMM slot is serviced by one OMI link (memory subchannel). The maximum bandwidth of the system depends on the number of OMI links that are used and the data rate of the DDIMMs that populate the configured links.
-
-To calculate the maximum memory bandwidth of a system, use the following formula:
-
-- 1-socket and 2-socket configurations are based on one memory feature code type:
-- Maximum Bandwidth = Number of DDIMMs x maximum bandwidth per OMI link as determined by the DRAM data rate
-- 2-socket configurations based on two memory feature code type:
-- Maximum Bandwidth = Number of DDIMMs of the first memory feature code type x maximum bandwidth per OMI link as determined by the related DRAM data rate + Number of DDIMMs of the second memory feature code type x maximum bandwidth per OMI link as determined by the related DRAM data rate.
-
-Important: For the best possible performance, it is generally recommended that memory is installed evenly in all memory slots and across all configured processor modules.
-
-Balancing memory across the installed system planar cards enables memory access in a consistent manner and typically results in better performance for your configuration.
-
-Table 2-20   Maximum memory bandwidth for the Power S1014 and Power S1022s servers
-
-| DDIMM  quantity     | Maximum bandwidth based on  3200 Mbps data rate DDIMMs (GBps) a   | Maximum bandwidth based on  3200 Mbps data rate DDIMMs (GBps) a   | Maximum bandwidth based on  2666 Mbps data rate DDIMMs (GBps) a   | Maximum bandwidth based on  2666 Mbps data rate DDIMMs (GBps) a   |
-|---------------------|-------------------------------------------------------------------|-------------------------------------------------------------------|-------------------------------------------------------------------|-------------------------------------------------------------------|
-| DDIMM  quantity     | Power S1014                                                       | Power S1022s                                                      | Power S1014                                                       | Power S1022s                                                      |
-| 2 DDR5 b            | 51 102                                                            | 51 102                                                            | 43 102                                                            | 43 102                                                            |
-| 4 DDR5 b            | 102 204                                                           | 102 204                                                           | 85 204                                                            | 85 204                                                            |
-| 6 DDR5 b            | 154 308                                                           | 154 308                                                           | 128                                                               | 128                                                               |
-| 8 DDR5 b            | 205 410                                                           | 205 410                                                           | 256 170 410                                                       | 256 170 410                                                       |
-| 10 DDR5 b 12 DDR5 b | - - - -                                                           | 256 512 307 614                                                   | - - - -                                                           | 213 512 256 614                                                   |
-| 14 DDR5 b           | - -                                                               | 358 716                                                           | - -                                                               | 298 716                                                           |
-| 16 DDR5 b           | - -                                                               | 410 820                                                           | - -                                                               | 341 820                                                           |
-
-- a. Numbers are rounded to the nearest integer.
-- b. These numbers do not pertain to systems with 32 GB DDIMMs. Use 25.6 GBps per DDIMM instead to calculate maximum throughput.
-
-Table 2-21 lists the maximum memory bandwidth for the DCM-based Power S1022 and Power S1024 servers, depending on the number of DDIMMs that are used, the DRAM data rate of the selected DDIMM type, and the number of configured sockets. The listing accounts for the minimum memory feature code order granularity and pertains to configurations that are based on only one single memory feature code type. Unsupported configurations are indicated by a '-' hyphen. The top number in the chart is the DDR4 throughput while the second (red) number is the DDR5 value.
-
-Table 2-21 Maximum memory bandwidth for the Power S1022 and Power S1024 servers
-
-| DDIMM  quantity   | Power S1022 and Power S1024  maximum bandwidth based on  3200 Mbps data rate DDIMMs (GBs) a   | Power S1022 and Power S1024  maximum bandwidth based on  3200 Mbps data rate DDIMMs (GBs) a   | Power S1024 maximum bandwidth  based on 2933 Mbps data rate  DDIMMs (GBs) a   | Power S1024 maximum bandwidth  based on 2933 Mbps data rate  DDIMMs (GBs) a   |
-|-------------------|-----------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-|                   | 1-socket  configuration                                                                       | 2-socket  configuration                                                                       | 1-socket  configuration                                                       | 2-socket  configuration                                                       |
-| 2                 | 51                                                                                            | -                                                                                             | 47                                                                            | -                                                                             |
-| DDR5 b            | 102                                                                                           | -                                                                                             | 102                                                                           | -                                                                             |
-| 4                 | 102                                                                                           | 102                                                                                           | 94                                                                            | 94                                                                            |
-| DDR5 b            | 204                                                                                           | 204                                                                                           | 204                                                                           | 204                                                                           |
-| 6                 | 154                                                                                           | -                                                                                             | 141                                                                           | -                                                                             |
-| DDR5 b            | 308                                                                                           | -                                                                                             | 308                                                                           | -                                                                             |
-| 8                 | 205                                                                                           | 205                                                                                           | 188                                                                           | 188                                                                           |
-| DDR5 b            | 410                                                                                           | 410                                                                                           | 410                                                                           | 410                                                                           |
-
-| DDIMM quantity   | Power S1022 and Power S1024 maximum bandwidth based on  3200 Mbps data rate DDIMMs (GBs) a   | Power S1022 and Power S1024 maximum bandwidth based on  3200 Mbps data rate DDIMMs (GBs) a   | Power S1024 maximum bandwidth based on 2933 Mbps data rate  DDIMMs (GBs) a   | Power S1024 maximum bandwidth based on 2933 Mbps data rate  DDIMMs (GBs) a   |
-|------------------|----------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|------------------------------------------------------------------------------|------------------------------------------------------------------------------|
-|                  | 1-socket  configuration                                                                      | 2-socket  configuration                                                                      | 1-socket  configuration                                                      | 2-socket  configuration                                                      |
-| 10 DDR5 b        | 256 512                                                                                      | - -                                                                                          | 235 512                                                                      | - -                                                                          |
-| 12 DDR5 b        | 307 614                                                                                      | 307 614                                                                                      | 282 614                                                                      | 282 614                                                                      |
-| 14 DDR5 b        | 358 716                                                                                      | - -                                                                                          | 329 716                                                                      | - -                                                                          |
-| 16 DDR5 b        | 410 820                                                                                      | 410 820                                                                                      | 376 820                                                                      | 376 820                                                                      |
-| 18 20 b          | - -                                                                                          | - 512                                                                                        | - -                                                                          | - 470                                                                        |
-| 22               | -                                                                                            | -                                                                                            | -                                                                            | -                                                                            |
-| 24 DDR5 b        | - -                                                                                          | 614 1228                                                                                     | - -                                                                          | 564 1228                                                                     |
-| 28 DDR5 b        | - -                                                                                          | 717 1434                                                                                     | - -                                                                          | 658 1434                                                                     |
-| 30 32 DDR5 b     | - - -                                                                                        | - 819 1638                                                                                   | - - -                                                                        | - 752 1638                                                                   |
-
-- a. Numbers are rounded to the nearest integer.
-- b. These numbers do not pertain to systems with 32 GB DDIMMs. Use 25.6 GBps per DDIMM instead to calculate maximum throughput.
 
 ## Power S1012
 
@@ -3434,7 +3039,7 @@ You can create your own users in the eBMC. This feature can also be used to crea
 A user features the following privileges:
 
 - - Administrator
-- - ReadOnly (you cannot modify anything (except the password of that user); therefore, a user with this privilege level cannot be used for HMC access to the server.
+- - ReadOnly you cannot modify anything (except the password of that user); therefore, a user with this privilege level cannot be used for HMC access to the server.
 - IBM security by way of Access Control Files
 
 To get 'root access' to the service processor by using the user celogin in FSP-managed servers, the IBM support team generated a password by using the serial number and the date.
@@ -3528,94 +3133,6 @@ Figure 2-40   Switching off the USB ports of the server
 
 <!-- image -->
 
-## 2.5.2  Managing the system by using DMTF Redfish
-
-eBMC-based systems can also be managed by using the DMTF Redfish APIs. Redfish is a REST API that is used for platform management and is standardized by the Distributed Management Task Force, Inc. For more information, see DMTF.
-
-You can work with Redfish by using several methods, ll of which require an https connection to the eBMC. One possibility is to use the curl operating system command. The following examples show how to work with curl and Redfish.
-
-Before you can acquire data from the server or run systems management tasks by using Redfish, you must authenticate against the server. In return for supplying a valid username and password, you receive a token that is used to authenticate requests (see Example 2-1).
-
-Example 2-1 Receiving a token from Redfish
-
-```
-# export eBMC=<IP> # export USER=admin # export PASSWORD=<PW> # export TOKEN='curl -k -H "Content-Type: application/json" -X POST https://${eBMC}/login
-```
-
--d "{username\" : \"${USER}\", password\" : \"${PASSWORD}\"}" | grep token | awk '{print $2;}' | tr -d '"''
-
-With this token, you now can receive data from the server. You start by requesting data of the Redfish root with /Redfish/v1 . You receive data with other branches in the Redfish tree; for example, Chassis .
-
-For more data, you can use the newly discovered odata.id field information /Redfish/v1/Chassis , as shown in Example 2-2.
-
-Example 2-2   Get chassis data from Redfish
-
-```
-#curl -s -k -H "X-Auth-Token: $TOKEN" -X GET https://${eBMC}/redfish/v1 { "@odata.id": "/redfish/v1", "@odata.type": "#ServiceRoot.v1\_12\_0.ServiceRoot", "AccountService": { "@odata.id": "/redfish/v1/AccountService" }, "Cables": { "@odata.id": "/redfish/v1/Cables" }, "CertificateService": { "@odata.id": "/redfish/v1/CertificateService" }, "Chassis": { "@odata.id": "/redfish/v1/Chassis" }, # curl -k -H "X-Auth-Token: $TOKEN" -X GET https://${eBMC}/Redfish/v1/Chassis { "@odata.id": "/Redfish/v1/Chassis", "@odata.type": "#ChassisCollection.ChassisCollection", " Members ": [ { "@odata.id": "/Redfish/v1/Chassis/chassis" } ], "Members@odata.count": 1, "Name": "Chassis Collection" # curl -k -H "X-Auth-Token: $TOKEN" -X GET https://${eBMC}/Redfish/v1/Chassis/chassis { "@odata.id": "/Redfish/v1/Chassis/chassis", "@odata.type": "#Chassis.v1\_16\_0.Chassis", "Actions": { ... "PCIeSlots": { "@odata.id": "/Redfish/v1/Chassis/chassis/PCIeSlots" }, ... "Sensors": { "@odata.id": "/Redfish/v1/Chassis/chassis/Sensors" }, ...
-```
-
-Under Chassis , another chassis is available (with lower case c). We can now use the tree with both; that is, /Redfish/v1/Chassis/chassis . After running the tool, you can see in Example 2-2 PCIeSlots and Sensors are available as examples of other resources on the server.
-
-In Example 2-3, you see what is available through the Sensors endpoint. Here, you can find the same sensors as in the ASMI GUI (see Figure 2-38 on page 116).
-
-For example, in the output, you find the sensor total\_power . When you ask for more information about that sensor (see Example 2-3), you can see that the server needed 1.426 watts at the time of running the command. Having programmatic access to this type of data allows you to build a view of the electrical power consumption of your Power environment in real time, or to report usage over a period.
-
-Example 2-3   Sensor data from Redfish
-
-```
-# curl -k -H "X-Auth-Token: $TOKEN" -X GET https://${eBMC}/Redfish/v1/Chassis/chassis/Sensors { "@odata.id": "/Redfish/v1/Chassis/chassis/Sensors", "@odata.type": "#SensorCollection.SensorCollection", "Description": "Collection of Sensors for this Chassis", "Members": [ { "@odata.id": "/Redfish/v1/Chassis/chassis/Sensors/Altitude" }, { "@odata.id": "/Redfish/v1/Chassis/chassis/Sensors/1V1CS\_0167\_p1\_rail\_iout" }, ... { "@odata.id": "/Redfish/v1/Chassis/chassis/Sensors/total\_power" }, # curl -k -H "X-Auth-Token: $TOKEN" -X GET \ https://${eBMC}/Redfish/v1/Chassis/chassis/Sensors/total\_power { "@odata.id": "/Redfish/v1/Chassis/chassis/Sensors/total\_power", "@odata.type": "#Sensor.v1\_0\_0.Sensor", "Id": "total\_power", "Name": "total power", "Reading": 1426.0, "ReadingRangeMax": null, "ReadingRangeMin": null, "ReadingType": "Power", "ReadingUnits": "W", "Status": { "Health": "OK", "State": "Enabled" }
-```
-
-```
-The following other strings are useful: Type/Model of the server: # curl -s -k -H "X-Auth-Token: $TOKEN" -X GET https://${eBMC}/Redfish/v1/Systems/system | grep Model | grep -v SubModel | grep \ -v \"\" "Model": "9043-MRX", Serial number: # curl -s -k -H "X-Auth-Token: $TOKEN" -X GET https://${eBMC}/redfish/v1/Systems/system | grep SerialNumber \ "SerialNumber": "<SN>",
-```
-
-- Type/Model/SN:
-
-```
-#curl -s -k -H "X-Auth-Token: $TOKEN" -X GET https://${eBMC}/redfish/v1/Systems/system | grep AssetTag "AssetTag": "Server-9043-MRX-<SN>",
-```
-
-- System indicator LED:
-
-#curl -s -k -H "X-Auth-Token: $TOKEN" -X GET https://${eBMC}/redfish/v1/Systems/system | grep IndicatorLED "IndicatorLED": "Off",
-
-- Total Memory:
-
-# curl -s -k -H "X-Auth-Token: $TOKEN" -X GET https://${eBMC}/redfish/v1/Systems/system | grep TotalSystemMemoryGiB "TotalSystemMemoryGiB": 8192
-
-- Power State:
-
-```
-# curl -s -k -H "X-Auth-Token: $TOKEN" -X GET https://${eBMC}/redfish/v1/Systems/system | grep PowerState "PowerState": "On",
-```
-
-Operations can also be run on the server by using the POST method to the Redfish API interface. The following curl commands can be used to start or stop the server (these commands work only if you are authenticated as a user with administrator privileges):
-
-- Power on server:
-- # curl -k -H "X-Auth-Token: $TOKEN" -X POST https://${eBMC}/redfish/v1/Systems/ system/Actions/Reset -d '{"ResetType":"On"}'
-- Power off server:
-- # curl -k -H "X-Auth-Token: $TOKEN" -X POST https://${eBMC}/redfish/v1/Systems/ system/Actions/Reset -d '{"ResetType":"ForceOff"}'
-
-For more information about Redfish, see Managing the system by using DMTF Redfish APIs.
-
-For more information about how to work with Redfish in Power systems, see Managing Power systems servers by using DMTF Redfish APIs.
-
-## 2.5.3  Managing the system by using the Intelligent Platform Management Interface
-
-The server can also be managed by using the IPMI, although for security reasons the IPMI is disabled by default on the system.
-
-Because inherent security vulnerabilities are associated with the IPMI, consider the use of Redfish APIs or the GUI to manage your system.
-
-If you want to use IPMI, this service must be enabled first. This process can be done by clicking Security and access → Policies . There, you find the policy Network IPMI (out-of-band IPMI) that must be enabled to support IPMI access.
-
-For more information about common IPMI commands, see Common IPMI commands.
-
-<!-- image -->
-
-Chapter 3.
-
-3
 
 ## Available features and options
 
@@ -3752,41 +3269,6 @@ A system that is initially ordered with a configuration that is based on the CUo
 
 A system cannot be converted from the Power Private Cloud with Shared Utility Capacity model to CUoD activations.
 
-Table 3-6 lists the processor card feature codes that are available at initial order for Power S1022 servers.
-
-Table 3-6   Processor feature code specification for the Power 1022 server
-
-| Processor card feature code   | Processor module type   |   Number of cores | Typical frequency range [GHz]   | CUoD a static processor core  activation  Feature  Code   | Base  processor core  activation  Feature  Code for  Pools 2.0   | Base core  activations  converted  from CUoD  static  activations   |
-|-------------------------------|-------------------------|-------------------|---------------------------------|-----------------------------------------------------------|------------------------------------------------------------------|---------------------------------------------------------------------|
-| #EPG9                         | DCM                     |                12 | 2.90 to 4.0                     | #EPF9                                                     | #EUCB                                                            | #EUCH                                                               |
-| #EPG8                         | DCM                     |                16 | 2.75 to 4.0                     | #EPF8                                                     | #EUCA                                                            | #EUCG                                                               |
-| #EPGA                         | DCM                     |                20 | 2.45 to 3.9                     | #EPFA                                                     | #EUCC                                                            | #EUCJ                                                               |
-
-- a. Capacity Upgrade on Demand
-
-Table 3-7 lists all processor-related feature codes for Power S1022 servers.
-
-Table 3-7   Processor-related features of the Power S1022 server
-
-| Feature Code   | Description                                                                                                                                              |
-|----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| #EPG9          | 12-core typical 2.90 to 4.0 GHz (maximum) Power10 processor card, available in quantity of  one (1-socket configuration) or two (2-socket configuration) |
-| #EPG8          | 16-core typical 2.75 to 4.0 GHz (maximum) Power10 processor card, available in quantity of  two (2-socket configuration) only                            |
-
-| Feature Code   | Description                                                                                                                      |
-|----------------|----------------------------------------------------------------------------------------------------------------------------------|
-| #EPGA          | 20-core typical 2.45 to 3.90 GHz (maximum) Power10 processor card, available in quantity of  two (2-socket configuration) only   |
-| #EPF9          | One CUoD static processor core activation for #EPG9                                                                              |
-| #EPF8          | One CUoD static processor core activation for #EPG8                                                                              |
-| #EPFA          | One CUoD static processor core activation for #EPGA                                                                              |
-| #2319          | Factory deconfiguration of one core for #EPG9, #EPG8, or #EPGA                                                                   |
-| #EP20          | Power Enterprise Pools 2.0 enablement                                                                                            |
-| #EUCB          | One base processor core activation on processor card #EPG9 for Pools 2.0 to support any  operating system                        |
-| #EUCA          | One base processor core activation on processor card #EPG8 for Pools 2.0 to support any  operating system                        |
-| #EUCC          | One base processor core activation on processor card #EPGA for Pools 2.0 to support any  operating system                        |
-| #EUCH          | One base processor core activation on processor card #EPG9 for Pools 2.0 to support any  operating system (converted from #EPF9) |
-| #EUCG          | One base processor core activation on processor card #EPG8for Pools 2.0 to support any  operating system (converted from #EPF8)  |
-| #EUCJ          | One base processor core activation on processor card #EPGA for Pools 2.0 to support any  operating system (converted from #EPFA) |
 
 ## Power S1024 processor feature codes
 
@@ -3813,40 +3295,6 @@ When configured as a Power Private Cloud system, each Power S1024 server require
 Although configured against a specific server, the base activations can be aggregated across a pool of servers and used on any of the systems in the pool. When a system is configured in this way, all processor cores that are installed in the system become available for use. Any usage above the base processor activations that are purchased across a pool is monthly for total usage across a pool of systems.
 
 A system that is initially ordered with a configuration that is based on the CUoD processor activations can be converted to the Power Private Cloud with Shared Utility Capacity model later. This process requires the conversion of existing CUoD processor activations to base activations, which include different feature codes. The physical processor feature codes do not change.
-
-A system cannot be converted from the Power Private Cloud with Shared Utility Capacity model to CUoD activations.
-
-Table 3-8 lists the processor card feature codes that are available at initial order for Power S1024 servers.
-
-Table 3-8   Processor feature code specification for the Power S1024 serverTable 3-9 lists all processor-related feature codes for Power S1024 servers.
-
-| Processor card feature code   | Processor module type   |   Number of cores | Typical frequency range [GHz]   | CUoD static  processor  core  activation  Feature  Code   | Base  processor  core  activation Feature Code  for Pools 2.0   | Base core  activations  converted  from CUoD  static  activations   |
-|-------------------------------|-------------------------|-------------------|---------------------------------|-----------------------------------------------------------|-----------------------------------------------------------------|---------------------------------------------------------------------|
-| #EPGM                         | DCM                     |                12 | 3.40 - 4.0                      | #EPFM                                                     | #EUBX                                                           | #EUBZ                                                               |
-| #EPGC                         | DCM                     |                16 | 3.10 - 4.0                      | #EPFC                                                     | #EUCK                                                           | #EUCR                                                               |
-| #EPGD                         | DCM                     |                24 | 2.75 - 3.9                      | #EPFD                                                     | #EUCS                                                           | #EUCT                                                               |
-
-Table 3-9   Processor-related features of the Power S1024 server
-
-| Feature code   | Description                                                                                                                                              |
-|----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| #EPGM          | 12-core typical 3.40 to 4.0 GHz (maximum) Power10 processor card, available in quantity of  one (1-socket configuration) or two (2-socket configuration) |
-| #EPGC          | 16-core typical 3.10 to 4.0 GHz (maximum) Power10 processor card, available in quantity of  two (2-socket configuration) only                            |
-| #EPGD          | 24-core typical 2.75 to 3.9 GHz (maximum) Power10 processor card, available in quantity of  two (2-socket configuration) only                            |
-| #EPFM          | One CUoD static processor core activation for #EPGM                                                                                                      |
-| #EPFC          | One CUoD static processor core activation for #EPGC                                                                                                      |
-| #EPFD          | One CUoD static processor core activation for #EPGD                                                                                                      |
-
-| Feature code   | Description                                                                                                                    |
-|----------------|--------------------------------------------------------------------------------------------------------------------------------|
-| #2319          | Factory deconfiguration of one core for #EPGM, #EPGC, or #EPGD                                                                 |
-| #EP20          | Power Enterprise Pools 2.0 enablement                                                                                          |
-| #EUBX          | One base processor core activation on processor card #EPGM for Pools 2.0 to support any  operating system                      |
-| #EUCK          | One base processor core activation on processor card #EPGC for Pools 2.0 to support any  operating system                      |
-| #EUCL          | One base processor core activation on processor card #EPGD for Pools 2.0 to support any  operating system                      |
-| #EUBZ          | One base processor core activation on processor card #EUGM for Pools 2.0 to support any  operating system converted from #EPFM |
-| #EUCR          | One base processor core activation on processor card #EUGC for Pools 2.0 to support any  operating system converted from #EPFC |
-| #EUCT          | One base processor core activation on processor card #EUGD for Pools 2.0 to support any  operating system converted from #EPFD |
 
 ## 3.2  Memory features
 
@@ -4775,36 +4223,6 @@ Table 3-38   Maximum number of I/O drawers that are supported and total number o
 - a. The PCIe expansion drawer (#EMX0) cannot be used with the four-core configuration Power S1014 server.
 - b. The empty PCIe module bay must be populated by a filler module.
 
-## PCIe3 x16 to CXP Converter Adapter
-
-The PCIe3 x16 to CXP Converter adapter provides two ports for the attachment of two expansion drawer cables. One adapter supports the attachment of one PCIe3 6-slot fanout module in an EMX0 PCIe Gen3 I/O expansion drawer.
-
-Table 3-39 lists the available converter adapters that can be installed in the Power S1022s and S1022 servers.
-
-Table 3-39   Available converter adapter in the Power S1022s and S1022
-
-| Feature code   |   Slot priorities (one processor) |   Maximum  number of  adapters  supported | Slot priorities (two  processors)   |   Maximum  number of  adapters  supported |
-|----------------|-----------------------------------|-------------------------------------------|-------------------------------------|-------------------------------------------|
-| EJ24 a         |                                10 |                                         1 | 3, 0, 4, 10                         |                                         4 |
-
-- a. single-wide, low-profile
-
-Table 3-40 lists the available converter adapter that can be installed in the Power S1014 and S1024 servers.
-
-Table 3-40   Available converter adapter in the Power S1014 and S1024
-
-| Feature code   |   Slot priorities (one processor) |   Maximum  number of  adapters  supported | Slot priorities (two  processors)   |   Maximum  number of  adapters  supported |
-|----------------|-----------------------------------|-------------------------------------------|-------------------------------------|-------------------------------------------|
-| EJ2A a         |                                10 |                                         1 | 3, 0, 4, 10                         |                                         4 |
-
-- a. single-wide, full-height
-
-The PCIe3 x16 to CXP Converter Adapter (#EJ24) is shown in Figure 3-12.
-
-Figure 3-12   PCIe3 x16 to CXP Converter Adapter (#EJ24)
-
-<!-- image -->
-
 ## PCIe Gen3 I/O expansion drawer optical cabling
 
 I/O drawers are connected to the adapters in the system node through data transfer cables:
@@ -4930,13 +4348,6 @@ Starting with firmware level FW 1060, the NED24 NVMe drawer supports multipath. 
 
 Multipath is automatically enabled with the installation of FW 1060 and is enabled when the appropriate OS level is installed. Multipath support is provided in the operating systems shown in Table 3-43.
 
-Table 3-43   Multipath support by operating system
-
-| Operating  System                                                                                                                                                                                                                                                                         | Supported releases   |
-|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------|
-| AIX Version 7.3 with the 7300-02 Technology Level and Service  Pack 7300-02-02-2420, or later AIX Version 7.2 with the 7200-05 Technology Level and Service  Pack 7200-05-08-2420, or later AIX Version 7.3 with the 7300-01 Technology Level and Service  Pack 7300-01-04-2420, or later | AIX                  |
-| SUSE Linux Enterprise Server 15.5 or later Red Hat Enterprise Linux 9.2 or later                                                                                                                                                                                                          | Linux                |
-
 Figure 3-16 shows the multipath support for the NED24 drawer.
 
 Figure 3-16   NED24 multipath support
@@ -5026,32 +4437,7 @@ Table 3-44   Recommended drive installation order
 |           10 |                 11 |                  23 |
 |           11 |                  6 |                  18 |
 |           12 |                 12 |                  24 |
-
-## Summary
-
-The NED24 drawer provides an excellent method of increasing the internal NVMe storage in the Power10 processor family and should be considered instead of external SAS. NVMe provides significantly lower price per GB than SAS-based enclosures and also provides significantly better performance.
-
-Table 3-45 summarized the specifications of the NED24 drawer (#ESR0).
-
-Table 3-45   Summary of the NED24 specifications
-
-| External Storage Drawer  Specifications   | ESR0 PCIe NED24                                                                                                                  |
-|-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------|
-| Rack mount                                | 2U 19" rack                                                                                                                      |
-| Devices Supported                         | 24 SFF 15mm U.2 NVMe devices                                                                                                     |
-| Max Enterprise Class Storage  Capacity    | 153.6TB                                                                                                                          |
-| Internal Connectivity                     | PCIe Gen4                                                                                                                        |
-| External Connectivity                     | Dual PCIe Gen4 CXP Cable Adapters                                                                                                |
-| Cables                                    | Copper cables up to 3m Active Optical cables up to 20m                                                                           |
-| Electronics service module                | Dual redundant ESMs with 24 PCIe Gen4 lanes each                                                                                 |
-| ESM RAS                                   | Hot insert/removal Power Fault Tolerant                                                                                          |
-| Power Supply                              | Dual 'EU Regulation 2019 42' Compliant Power Supply - 180-264 VAC 50/60 MHz - No DC option - N-1 Power & Cooling - Hot swappable |
-| Operating Systems                         | AIX, IBM i, Linux, VIOS                                                                                                          |
-| Platforms Supported                       | Power10                                                                                                                          |
-| Major FRU-able Parts                      | NVMe Devices, Cable Card, ESM, PSU & PDB, Cables, Mid-Plane                                                                      |
-| Concurrent Maintenance                    | NVMe Devices, ESM, PSUs, Cables                                                                                                  |
-| Cooling & Power                           | Redundant Cooling and Power                                                                                                      |
-| Code Updates                              | Concurrent Code Download                                                                                                         |
+                                                                                              |
 
 ## 3.8.4  EXP24SX SAS Storage Enclosure
 
@@ -5625,31 +5011,6 @@ The Remote Restart function relies on technology that is similar to LPM where a 
 
 HMC V10R1 provides an enhancement to the Remote Restart Feature that enables remote restart when a virtual optical device is assigned to a partition.
 
-## 4.1.7  POWER processor modes
-
-Although they are not virtualization features, the POWER processor modes are described here because they affect various virtualization features.
-
-On Power servers, partitions can be configured to run in several modes, including the following modes:
-
-- POWER8
-
-This native mode for Power8 processors implements Version 2.07 of the IBM Power ISA.
-
-- POWER9
-
-This native mode for Power9 processors implements Version 3.0 of the IBM Power ISA.
-
-- Power10
-
-This native mode for Power10 processors implements Version 3.1 of the IBM Power ISA.
-
-For more information, see Processor compatibility mode definitions.
-
-Figure 4-2 shows the available processor modes on a Power10 processor-based scale-out server.
-
-Figure 4-2   Processor modes
-
-<!-- image -->
 
 Processor compatibility mode is important when LPM migration is planned between different generations of server. An LPAR that might be migrated to a machine that is managed by a processor from another generation must be activated in a specific compatibility mode.
 
