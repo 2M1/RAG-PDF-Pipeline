@@ -43,9 +43,9 @@ def generate_response(query, collection_name, use_context=True):
         flat_documents = [item for sublist in documents for item in sublist]
         context = "\n".join(flat_documents)
         input_text = f"""
-        You are a highly skilled assistant designed to provide accurate, concise, and contextually relevant answers. Below is the context retrieved from a trusted source, followed by a question. Your task is to prioritize the provided context for your response. If the context does not fully answer the question, carefully incorporate your general knowledge to enhance the completeness of the answer.
+        Instructions: Compose a comprehensive reply to the query using the search results given. If the search results mention multiple subjects with the same name, create separate answers for each. Only include information found in the results and don't add any additional information. Make sure the answer is correct and don't output false content. If the text does not relate to the query, simply state 'Found Nothing'. Ignore outlier search results which has nothing to do with the question. Only answer what is asked.
 
-        Context:
+        Query:
         {context}
 
         Question:
