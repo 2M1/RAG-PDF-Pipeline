@@ -76,8 +76,8 @@ def generate_response(query, collection_name, use_context=True):
 # Create Gradio UI
 def main():
     with gr.Blocks() as demo:
-        gr.Markdown("# Chatbot for Openshift on POWER")
-        gr.Markdown("This is a Chatbot which has context from the Openshift RedBook for POWER. If you do not want to use any context, then switch off the box under Use Context (RAG).")
+        gr.Markdown("# Chatbot for Openshift and POWER Systems based on the IBM RedBooks")
+        gr.Markdown("This is a Chatbot which has context from the Openshift RedBook for POWER and the Systems itself. If you do not want to use any context, then switch off the box under Use Context (RAG).")
         gr.Markdown("If this is switched off, then you are basically using a normal Chatbot without any additional context")
 
         with gr.Row():

@@ -15,7 +15,7 @@ import re
 from langchain.text_splitter import MarkdownTextSplitter
 
 sentence_transformer_ef = embedding_functions.SentenceTransformerEmbeddingFunction(model_name="all-mpnet-base-v2")
-splitter = MarkdownTextSplitter(chunk_size=500)
+splitter = MarkdownTextSplitter(chunk_size=1000)
 
 
 class CollectionStatus(Enum):
@@ -119,7 +119,7 @@ def insert_document(document_path: Path, collection: Collection) -> None:
 def main() -> None:
     base_directory = Path(os.getcwd())
     db_directory = Path("./db")
-    files_directory = Path("./db_files_ocp_md")  # Folder containing markdown files
+    files_directory = Path("./db_files_md")  # Folder containing markdown files
 
     if not db_directory.exists():
         db_directory.mkdir()
